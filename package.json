@@ -17,16 +17,14 @@
 		"typescript": "^5.4.2"
 	},
 	"tsup": {
-		"entry": [
-			"src/index.ts"
-		],
+		"entry": ["src/index.ts"],
 		"splitting": true,
 		"sourcemap": true,
 		"clean": true,
-		"format": [
-			"cjs",
-			"esm"
-		],
+		"format": ["cjs", "esm"],
 		"dts": true
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
