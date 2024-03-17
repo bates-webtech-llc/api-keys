@@ -1,5 +1,12 @@
 # @bateswebtech/api-keys
 
+## 0.4.0
+
+### Minor Changes
+
+- 31cf1da: change return type for validate header(s)
+  make config optional for functions
+
 ## 0.3.0
 
 ### Minor Changes
