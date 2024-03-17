@@ -1,6 +1,6 @@
 # API-Keys
 
-API-Keys is a Node.js module designed to assist in the creation, hashing, and validation of API keys. It provides a simple yet powerful interface for managing API keys with optional prefixes, SHA256 hashing for security, and validation methods to ensure that API keys are correctly formatted and authorized.
+API-Keys A zero-dependency, lightweight tool designed to assist in the creation, hashing, and validation of API keys. It provides a simple yet powerful interface for managing API keys with optional prefixes, SHA256 hashing for security, and validation methods to ensure that API keys are correctly formatted and authorized.
 
 ## Features
 
@@ -14,7 +14,7 @@ API-Keys is a Node.js module designed to assist in the creation, hashing, and va
 To install API-Keys, you need to have Node.js installed on your system. Once Node.js is installed, you can add API-Keys to your project by running the following command in your project's root directory:
 
 ```bash
-npm install <your-package-name>
+npm install @bateswebtech/api-keys
 ```
 
 ## Usage
