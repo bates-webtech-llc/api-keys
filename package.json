@@ -4,7 +4,7 @@
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"private": false,
 	"scripts": {
 		"build": "tsup",
@@ -17,11 +17,16 @@
 		"typescript": "^5.4.2"
 	},
 	"tsup": {
-		"entry": ["src/index.ts"],
+		"entry": [
+			"src/index.ts"
+		],
 		"splitting": true,
 		"sourcemap": true,
 		"clean": true,
-		"format": ["cjs", "esm"],
+		"format": [
+			"cjs",
+			"esm"
+		],
 		"dts": true
 	}
 }

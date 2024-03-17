@@ -1,5 +1,11 @@
 # @bateswebtech/api-keys
 
+## 0.3.0
+
+### Minor Changes
+
+- 87e3f83: Adds private false to package json
+
 ## 0.2.0
 
 ### Minor Changes
