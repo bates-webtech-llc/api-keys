@@ -1,5 +1,12 @@
 # @bateswebtech/api-keys
 
+## 0.5.0
+
+### Minor Changes
+
+- 8ea357a: update readme package name
+  allow additional config option returnHash which will give you the hashed api key instead of the api key when reading from headers
+
 ## 0.4.0
 
 ### Minor Changes
