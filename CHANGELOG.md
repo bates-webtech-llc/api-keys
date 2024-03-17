@@ -1,5 +1,11 @@
 # @bateswebtech/api-keys
 
+## 0.2.0
+
+### Minor Changes
+
+- ec78a6b: Add release command so we can publish to npm
+
 ## 0.1.0
 
 ### Minor Changes
