@@ -24,7 +24,7 @@ npm install @bateswebtech/api-keys
 First, import the `createAPIKey`, `hashAPIKey`, `validateHeaders`, and `validateHash` functions from the module:
 
 ```javascript
-import { createAPIKey, hashAPIKey, validateHeaders, validateHash } from '<your-package-name>';
+import { createAPIKey, hashAPIKey, validateHeaders, validateHash } from '@bateswebtech/api-keys';
 ```
 
 ### Creating an API Key
@@ -32,7 +32,7 @@ import { createAPIKey, hashAPIKey, validateHeaders, validateHash } from '<your-p
 To create an API key, use the `createAPIKey` function by providing an optional configuration object. This function generates an API key, applies a prefix (if provided), and returns both the key and its SHA256 hashed version.
 
 ```javascript
-import { createAPIKey } from '<your-package-name>';
+import { createAPIKey } from '@bateswebtech/api-keys';
 
 async function generateAPIKey() {
     const apiKeyData = await createAPIKey({ prefix: 'myapp_' });
@@ -47,7 +47,7 @@ generateAPIKey();
 To hash an existing API key for secure storage or comparison, use the `hashAPIKey` function. This function takes an API key as input and returns a Promise that resolves to the SHA256 hashed version of the API key.
 
 ```javascript
-import { hashAPIKey } from '<your-package-name>';
+import { hashAPIKey } from '@bateswebtech/api-keys';
 
 async function hashKey() {
   const hashedKey = await hashAPIKey('myapp_someApiKey');
@@ -62,7 +62,7 @@ hashKey();
 To validate authorization headers, particularly to ensure they contain a valid API key or token, use the `validateHeaders` function. This function checks if the provided headers contain the expected authorization type (e.g., "Bearer") and a token. It returns the token if the authorization header is valid, or an error object if there's an issue.
 
 ```javascript
-import { validateHeaders } from '<your-package-name>';
+import { validateHeaders } from '@bateswebtech/api-keys';
 
 function validateAuthHeader() {
   // Simulating headers object similar to what you'd receive in an HTTP request
@@ -84,7 +84,7 @@ validateAuthHeader();
 To verify the validity of an API key by comparing it against its hashed version, use the `validateHash` function. This can be particularly useful for authenticating or authorizing API requests. The function accepts an API key and its hashed counterpart as parameters, returning a boolean indicating whether the key matches the hashed version.
 
 ```javascript
-import { validateHash } from '<your-package-name>';
+import { validateHash } from '@bateswebtech/api-keys';
 
 async function verifyKey() {
   const isValid = await validateHash('someApiKey', 'expectedHashedValue');

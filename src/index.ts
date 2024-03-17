@@ -49,6 +49,7 @@ export async function hashAPIKey(apiKey: string) {
 interface ValidateAuthHeaderConfig {
 	auth?: string;
 	header?: string;
+	returnHash?: boolean;
 }
 
 /**
@@ -57,7 +58,7 @@ interface ValidateAuthHeaderConfig {
  * @param config - The configuration object.
  * @returns The token if the authorization header is valid, or an error object if there is an issue.
  */
-export function validateHeaders(
+export async function validateHeaders(
 	headers: Headers,
 	config?: ValidateAuthHeaderConfig,
 ) {
@@ -70,6 +71,8 @@ export function validateHeaders(
 		const [type, token] = authHeader.split(" ");
 		if (type !== auth) throw new Error("Invalid authorization type.");
 		if (!token || !token?.length) throw new Error("Token is missing.");
+		if (config?.returnHash)
+			return { key: token, hashedKey: await sha256(token) };
 
 		return { key: token };
 	} catch (error) {
@@ -82,7 +85,7 @@ export function validateHeaders(
 	}
 }
 
-export function validateHeader(
+export async function validateHeader(
 	header: string,
 	config?: Omit<ValidateAuthHeaderConfig, "header">,
 ) {
@@ -91,6 +94,8 @@ export function validateHeader(
 		const [type, token] = header.split(" ");
 		if (type !== auth) throw new Error("Invalid authorization type.");
 		if (!token || !token?.length) throw new Error("Token is missing.");
+		if (config?.returnHash)
+			return { key: token, hashedKey: await sha256(token) };
 
 		return { key: token };
 	} catch (error) {
