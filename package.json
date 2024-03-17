@@ -1,0 +1,30 @@
+{
+	"name": "@bateswebtech/api-keys",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"version": "0.0.1",
+	"scripts": {
+		"build": "tsup",
+		"lint": "tsc"
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.27.1",
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.2"
+	},
+	"tsup": {
+		"entry": [
+			"src/index.ts"
+		],
+		"splitting": true,
+		"sourcemap": true,
+		"clean": true,
+		"format": [
+			"cjs",
+			"esm"
+		],
+		"dts": true
+	}
+}
