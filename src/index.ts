@@ -21,8 +21,8 @@ interface CreateAPIKeyConfig {
  * @param config - The configuration object for creating the API key.
  * @returns An object containing the generated API key and its sha256 hashed version.
  */
-export async function createAPIKey(config: CreateAPIKeyConfig) {
-	const { prefix = "sk_" } = config;
+export async function createAPIKey(config?: CreateAPIKeyConfig) {
+	const prefix = config?.prefix ?? "";
 
 	const key = config?.key ?? crypto.randomUUID();
 
@@ -59,9 +59,9 @@ interface ValidateAuthHeaderConfig {
  */
 export function validateHeaders(
 	headers: Headers,
-	config: ValidateAuthHeaderConfig,
+	config?: ValidateAuthHeaderConfig,
 ) {
-	const { auth = "Bearer", header = "authorization" } = config;
+	const { auth = "Bearer", header = "authorization" } = config || {};
 
 	try {
 		const authHeader = headers.get(header);
@@ -71,7 +71,7 @@ export function validateHeaders(
 		if (type !== auth) throw new Error("Invalid authorization type.");
 		if (!token || !token?.length) throw new Error("Token is missing.");
 
-		return token;
+		return { key: token };
 	} catch (error) {
 		return {
 			error:
@@ -84,15 +84,15 @@ export function validateHeaders(
 
 export function validateHeader(
 	header: string,
-	config: Omit<ValidateAuthHeaderConfig, "header">,
+	config?: Omit<ValidateAuthHeaderConfig, "header">,
 ) {
-	const { auth = "Bearer" } = config;
+	const { auth = "Bearer" } = config || {};
 	try {
 		const [type, token] = header.split(" ");
 		if (type !== auth) throw new Error("Invalid authorization type.");
 		if (!token || !token?.length) throw new Error("Token is missing.");
 
-		return token;
+		return { key: token };
 	} catch (error) {
 		return {
 			error:
